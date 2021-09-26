@@ -1,0 +1,54 @@
+<template>
+  <div>
+    <span>账号设置</span>
+    <el-form ref="changeCode"
+             :model="changeCode"
+             :rules="rules"
+             label-width="80px"
+             class="form">
+      <el-form-item label="旧密码"
+                    prop="oldCode"
+                    class="input">
+        <el-input v-model="changeCode.oldCode"
+                  placeholder="请输入密码"
+                  type="password"
+                  show-password></el-input>
+      </el-form-item>
+      <el-form-item label="新密码"
+                    prop="newCode"
+                    class="input">
+        <el-input v-model="changeCode.code"
+                  placeholder="请输入密码"
+                  type="password"
+                  show-password></el-input>
+      </el-form-item>
+      <el-form-item label="新密码"
+                    prop="newCode"
+                    class="input">
+        <el-input v-model="changeCode.recode"
+                  placeholder="请输入密码"
+                  type="password"
+                  show-password></el-input>
+      </el-form-item>
+
+    </el-form>
+    <el-button type="primary"
+               plain>主要按钮</el-button>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'changePassword',
+  data () {
+    return {
+      oldCode: "",
+      newCode: "",
+      reNewCode: "",
+    }
+  }
+}
+</script>
+
+<style scoped>
+</style>

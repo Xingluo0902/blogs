@@ -1,0 +1,46 @@
+<template>
+  <div id="backStageNotice">
+    <el-button type="primary"
+               @click="pulishNotice"
+               class="toPublish">发布新公告</el-button>
+    <back-stage-notice-items v-for="(notice,index) in notices"
+                             :key="index"
+                             :notice='notice'></back-stage-notice-items>
+  </div>
+</template>
+
+<script>
+import BackStageNoticeItems from '@/views/backStageManagement/BackStageNoticeItems'
+import { getAllNotice } from '@/netWork/require'
+export default {
+  name: 'BackStageNotice',
+  data () {
+    return {
+      notices: []
+    }
+  },
+  components: {
+    BackStageNoticeItems
+  },
+  created () {
+    getAllNotice().then(res => {
+      console.log(res);
+      this.notices = res.data;
+
+    }).catch(err => { console.log(err) })
+  },
+  methods: {
+    pulishNotice () {
+      this.$router.push('publishnotice')
+    }
+  }
+}
+</script>
+
+<style scoped>
+.toPublish {
+  margin-top: 14px;
+  margin-left: 12px;
+  font-size: 8px;
+}
+</style>

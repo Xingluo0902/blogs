@@ -1,0 +1,51 @@
+<template>
+  <div class="block">
+    <el-carousel trigger="click"
+                 height="500px"
+                 class="swiper"
+                 type="card"
+                 :interval='3000'>
+      <el-carousel-item v-for="(src,index) in srcs"
+                        :key="index"
+                        class="img">
+        <img :src="src.url"
+             alt="">
+      </el-carousel-item>
+    </el-carousel>
+  </div>
+</template>
+<script>
+import { swiperImg } from '@/netWork/require'
+export default {
+  name: 'Swiper',
+  data () {
+    return {
+      srcs: [
+        { url: require('../../assets/imge/wallhaven-l3zmwy_1920x1080.png') },
+        { url: require('../../assets/imge/wallhaven-pkw6y3_1920x1080.png') },
+        { url: require('../../assets/imge/wallhaven-z8odwg_1920x1080.png') },
+        { url: require('../../assets/imge/wallhaven-q6o81d_1920x1080.png') },
+        { url: require('../../assets/imge/wallhaven-8ogod1_1920x1080.png') },
+      ],
+    }
+  },
+}
+</script>
+
+<style scoped>
+.block {
+  margin-top: 33px;
+}
+.swiper {
+  margin: 0 auto;
+  padding-top: 10px;
+  width: 700px;
+  height: 240px;
+  overflow: hidden;
+}
+.img {
+  height: 200px;
+  /* margin-bottom: 40px; */
+}
+</style>
+

@@ -1,0 +1,237 @@
+<template>
+  <div id="details">
+    <nav-bar></nav-bar>
+    <div class="details">
+      <h1>标题</h1>
+      <div class="introduction">
+        <span class="creation">原创</span>
+        <span class="writer">作者：xxx</span>
+        <span class="time">时间：2021-8-20</span>
+        <span class="banquan">版权</span>
+      </div>
+    </div>
+    <div class="article">
+      <p>文章</p>
+    </div>
+    <div class="end">
+      <div class="endWriter">
+        <span>
+          <img src="~assets/imge/wallhaven-q6o81d_1920x1080.png"
+               alt="">
+        </span>
+        <span>作者：xxx</span>
+      </div>
+      <div class="endIcon">
+        <span @click="like"
+              :class="{active:boolLike}">&#xe619;</span>
+        <span @click="collection"
+              :class="{active:boolCollection}">&#xe61a;</span>
+      </div>
+    </div>
+    <div class="comment">
+      <el-input type="textarea"
+                :autosize="{ minRows: 2, maxRows: 4}"
+                placeholder="优质的评论能够帮助博主获得更高的声誉"
+                v-model="textarea">
+      </el-input>
+      <div class="reply"
+           v-for="item in 5"
+           :key='item'>
+        <div class="writerReply">
+          <span>
+            <img src="~assets/imge/wallhaven-q6o81d_1920x1080.png"
+                 alt="">
+          </span>
+          <span>
+            <strong>xxx：</strong>
+            xxxxxxx</span>
+          <span @click="commentReply">
+            <strong>@回复</strong>
+          </span>
+        </div>
+        <div class="replyLike">
+          <span @click="replyLike"
+                :class="{active:boolreplyLike}">&#xe619;</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import NavBar from '@/views/NavBar'
+export default {
+  name: 'Details',
+  data () {
+    return {
+      boolLike: false,
+      boolCollection: false,
+      boolComment: false,
+      boolreplyLike: false,
+      textarea: '',
+    }
+  },
+  methods: {
+    like () {
+      console.log('like')
+      this.boolLike = !this.boolLike;
+    },
+    collection () {
+      console.log('collection')
+      this.boolCollection = !this.boolCollection;
+    },
+    replyLike () {
+      this.boolreplyLike = !this.boolreplyLike;
+    },
+    commentReply () {
+      console.log('commentReply')
+    }
+  },
+  components: {
+    NavBar
+  }
+}
+</script>
+
+<style scoped>
+.details {
+  margin-top: 33px;
+}
+h1 {
+  margin: 0 auto;
+}
+.introduction {
+  width: 533px;
+  height: 78px;
+  margin: 0 auto;
+  background-color: rgb(250, 246, 246);
+  display: flex;
+}
+
+.introduction span:first-child {
+  width: 58px;
+  height: 36px;
+  background-color: #f8bfbf;
+  border-radius: 5px;
+  font-size: 8px;
+  font-weight: 500;
+  line-height: 36px;
+  color: antiquewhite;
+  text-align: center;
+  cursor: progress;
+}
+.introduction span:nth-child(2),
+.introduction span:nth-child(3),
+.endWriter span:last-child {
+  margin: 19px 39px;
+  color: #909399;
+  font-size: 16px;
+  font-weight: 600;
+}
+.endWriter span:last-child {
+  margin: 0 39px;
+}
+.introduction span:nth-child(3) {
+  margin-top: 26px;
+}
+.introduction span:nth-child(4) {
+  color: #409eff;
+  margin-top: 46px;
+  margin-left: 715px;
+}
+
+.endIcon span,
+.replyLike span {
+  font-family: "iconfont";
+  font-size: 24px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0 28px;
+  cursor: pointer;
+}
+.endIcon span {
+  margin: 0 18;
+}
+.feature span:hover {
+  color: #e67e22;
+}
+.active {
+  color: #e67e22;
+}
+.article {
+  width: 78%;
+  margin: 71px auto;
+  height: 500px;
+  background-color: skyblue;
+}
+.end {
+  display: flex;
+  width: 78%;
+  height: 68px;
+  margin: 0 auto;
+  box-shadow: 0 -1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+.endWriter {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding-left: 18px;
+}
+.endWriter span:first-child {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.endIcon {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  padding-right: 18px;
+}
+.comment {
+  width: 78%;
+  margin: 0 auto;
+  margin-top: 15px;
+}
+.reply {
+  margin-top: 15px;
+  width: 100%;
+  height: 58px;
+  display: flex;
+}
+.reply div {
+  display: flex;
+  padding-left: 34px;
+  margin-top: 10px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  line-height: 58px;
+  align-items: center;
+}
+.writerReply span:first-child {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.writerReply span:nth-child(2) {
+  margin-left: 18px;
+  font-size: 14px;
+}
+.writerReply span:last-child {
+  margin-left: 123px;
+  color: #e67e22;
+  cursor: pointer;
+}
+.replyLike {
+  flex: 1;
+  display: flex;
+  flex-direction: row-reverse;
+}
+.replyLike span {
+  padding: 38px;
+}
+</style>

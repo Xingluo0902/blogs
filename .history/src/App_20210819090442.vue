@@ -1,0 +1,36 @@
+<template>
+  <div id="app">
+    <home></home>
+    <login></login>
+    <router-link></router-link>
+  </div>
+</template>
+
+<style>
+@import "assets/CSS/base.css";
+</style>
+<script>
+import Home from 'views/Home'
+import Register from 'views/Register'
+import Login from 'views/Login'
+import Login from './views/Login.vue'
+
+export default {
+  name: 'App',
+  data () {
+    return {
+
+    }
+  },
+  components: {
+    Login,
+    Register,
+    Home
+  },
+
+
+  Loginmethods: {
+
+  }
+}
+</script>

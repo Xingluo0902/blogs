@@ -1,0 +1,46 @@
+<template>
+  <div id="navBar">
+    <div class="nav">
+      <span class="logo">
+        <img src="~assets/imge/1628503067_843837.png"
+             alt="">
+      </span>
+      <span class="blogs">博客</span>
+      <div class="input">
+        <input type="text"
+               placeholder="请输入搜索内容">
+        <div></div>
+      </div>
+      <span></span>
+      <span>头像</span>
+      <span>创作</span>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'NavBar',
+}
+</script>
+
+<style scoped>
+#navBar {
+  width: 100vw;
+}
+.nav {
+  display: flex;
+  width: 78%;
+  height: 50px;
+  margin: 0 auto;
+}
+.logo {
+  width: 310px;
+}
+.input input {
+  outline: none;
+  width: 350px;
+  height: 34px;
+  border-radius: 20px;
+}
+</style>

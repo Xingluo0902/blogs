@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    width: 100%;
+    height: 100%
+}
+
+@font-face {
+    font-family: 'iconfont';
+    /* Project id 2757725 */
+    src: url('//at.alicdn.com/t/font_2757725_5jo7g5bhm86.woff2?t=1629430462069') format('woff2'), url('//at.alicdn.com/t/font_2757725_5jo7g5bhm86.woff?t=1629430462069') format('woff'), url('//at.alicdn.com/t/font_2757725_5jo7g5bhm86.ttf?t=1629430462069') format('truetype');
+}
+
+li {
+    list-style: none;
+}
